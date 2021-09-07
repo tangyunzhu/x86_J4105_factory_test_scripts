@@ -1,0 +1,19 @@
+ls /dev/mmcblk* > tf_log
+echo "#------------------External TF-----------------#\n" >> upload_log.log
+cat tf_log >> upload_log.log
+r1=$(grep -o mmcblk0 tf_log | wc -l)
+#echo $r1
+
+r2=$(grep -o mmcblk2 tf_log | wc -l)
+#echo $r2
+
+if [ "$r2" -ge 1 ]; then
+    echo " - > External tf OK"
+    echo "--> External tf OK" >> upload_log.log
+else
+    echo " - > Error: External tf FAIL"
+    echo "--> External tf FAIL" >> upload_log.log
+    echo "FAIL" >> status
+    exit 3
+fi
+

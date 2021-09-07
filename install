@@ -1,0 +1,4 @@
+chmod +x *
+cp p /usr/bin
+cp t /usr/bin
+cp gpio /usr/bin

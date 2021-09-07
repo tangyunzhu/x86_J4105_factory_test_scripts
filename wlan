@@ -1,0 +1,14 @@
+iw dev wlo2 scan | grep SSID > log 
+echo "#------------------wlan-----------------#\n" >> upload_log.log
+cat log >> upload_log.log
+r=$(grep -o SSID log | wc -l)
+if [ "$r" -ge 2 ]; then
+    echo " - > wlan OK"
+    echo "--> wlan OK[need 2,get $r]" >> upload_log.log
+else
+    echo " - > Error: wlan FAIL"
+    echo "--> wlan FAIL[need 2,get $r]" >> upload_log.log
+    echo "FAIL" >> status
+    exit 2
+fi
+

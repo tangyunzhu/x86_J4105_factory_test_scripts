@@ -1,0 +1,24 @@
+r1=$(grep -o FAIL status | wc -l)
+#echo $r1
+
+if [ "$r1" -ge 1 ]; then
+    echo "-----------------------------------------"
+    echo "-                                       -"
+    echo "-                                       -"
+    echo "-             F A I L                   -"
+    echo "-                                       -"
+    echo "-                                       -"
+    echo "-----------------------------------------" 
+    echo "--> ALL TEST FAIL" >> upload_log.log
+else
+    
+    echo "-----------------------------------------"
+    echo "-                                       -"
+    echo "-                                       -"
+    echo "-             P A S S                   -"
+    echo "-                                       -"
+    echo "-                                       -"
+    echo "-----------------------------------------"
+    echo "--> ALL TEST PASS" >> upload_log.log
+    exit 2
+fi

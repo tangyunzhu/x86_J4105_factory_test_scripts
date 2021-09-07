@@ -1,0 +1,12 @@
+lsusb > log 
+echo "#------------------USB-----------------#\n" >> upload_log.log
+cat log >> upload_log.log
+r=$(grep -o Bus log | wc -l)
+if [ "$r" -eq 9 ]; then
+    echo " - > usb OK"
+else
+    echo " - > Error: usb FAIL"
+    echo "FAIL" >> status
+    exit 2
+fi
+

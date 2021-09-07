@@ -1,0 +1,178 @@
+
+#------------------en2s0-----------------#\n
+enp2s0    Link encap:Ethernet  HWaddr 00:e0:4c:03:19:1f  
+          inet addr:192.168.237.254  Bcast:192.168.237.255  Mask:255.255.255.0
+          inet6 addr: fe80::dd25:55b7:7c55:775b/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:5738 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:92 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:433165 (433.1 KB)  TX bytes:9826 (9.8 KB)
+          Memory:a1200000-a121ffff 
+
+-->enp2s0 OK
+#------------------en3s0-----------------#\n
+enp3s0    Link encap:Ethernet  HWaddr 00:e0:4c:03:19:20  
+          inet addr:192.168.237.5  Bcast:192.168.237.255  Mask:255.255.255.0
+          inet6 addr: fe80::3f09:1a1e:5e69:e472/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:30354 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:12685 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:36687138 (36.6 MB)  TX bytes:719389 (719.3 KB)
+          Memory:a1100000-a111ffff 
+
+--> enp3s0 OK
+#------------------wlan-----------------#\n
+	SSID: SEEED-MKT
+	SSID: seeed-guest
+	SSID: SEEED_TEST_5G
+	SSID: ASUS-24G
+	SSID: LaowaiNet5G
+	SSID: SEEED_TEST_2G
+	SSID: LaowaiNet2G
+	SSID: STU-EE-5G
+	Extended capabilities: Extended Channel Switching, SSID List, 6, 6
+	SSID: ASUS-5G
+--> wlan OK[need 2,get 10]
+#------------------External TF-----------------#\n
+/dev/mmcblk0
+/dev/mmcblk0boot0
+/dev/mmcblk0boot1
+/dev/mmcblk0p1
+/dev/mmcblk0p2
+/dev/mmcblk0p3
+/dev/mmcblk0p4
+/dev/mmcblk0rpmb
+/dev/mmcblk2
+/dev/mmcblk2p1
+/dev/mmcblk2p2
+--> External tf OK
+#------------------nvme-----------------#\n
+/dev/nvme0
+/dev/nvme0n1
+/dev/nvme0n1p1
+/dev/nvme0n1p2
+--> PCIE nvme OK
+#------------------USB-----------------#\n
+Bus 002 Device 002: ID 067b:2731 Prolific Technology, Inc. 
+Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
+Bus 001 Device 007: ID 8087:0aaa Intel Corp. 
+Bus 001 Device 006: ID 2886:8027  
+Bus 001 Device 005: ID 0bda:0129 Realtek Semiconductor Corp. RTS5129 Card Reader Controller
+Bus 001 Device 004: ID 046d:c05a Logitech, Inc. M90/M100 Optical Mouse
+Bus 001 Device 003: ID 2a7a:9587  
+Bus 001 Device 002: ID 23d0:0c80  
+Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+#------------------ SDA -----------------#\n
+/dev/sda
+/dev/sda1
+/dev/sda2
+/dev/sdb
+/dev/sdb1
+/dev/sdb2
+/dev/sdc
+/dev/sdc1
+/dev/sdc2
+/dev/sdc3
+--> /dev/sda OK
+--> /dev/sdb OK
+--> /dev/sdc OK
+\r\n-----------------------------------------------------------\r\n#
+Filesystem      Size  Used Avail Use% Mounted on
+udev            3.8G     0  3.8G   0% /dev
+tmpfs           782M  9.5M  772M   2% /run
+/dev/sdc2       6.3G  5.0G  968M  85% /
+tmpfs           3.9G  220K  3.9G   1% /dev/shm
+tmpfs           5.0M  4.0K  5.0M   1% /run/lock
+tmpfs           3.9G     0  3.9G   0% /sys/fs/cgroup
+/dev/sdc1       511M  6.2M  505M   2% /boot/efi
+tmpfs           782M   64K  781M   1% /run/user/1000
+/dev/mmcblk2p1  253M   48M  205M  19% /media/seeed/boot
+/dev/mmcblk2p2  3.4G  2.5G  800M  76% /media/seeed/rootfs
+Disk /dev/mmcblk0: 58.2 GiB, 62537072640 bytes, 122142720 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disklabel type: gpt
+Disk identifier: C4C0B33E-74B9-4CB7-8FA0-DFB5D1125C27
+
+Device             Start       End   Sectors  Size Type
+/dev/mmcblk0p1      2048    206847    204800  100M EFI System
+/dev/mmcblk0p2    206848    239615     32768   16M Microsoft reserved
+/dev/mmcblk0p3    239616 120502271 120262656 57.4G Microsoft basic data
+/dev/mmcblk0p4 120502272 122140671   1638400  800M Windows recovery environment
+
+
+Disk /dev/mmcblk0boot1: 4 MiB, 4194304 bytes, 8192 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+
+
+Disk /dev/mmcblk0boot0: 4 MiB, 4194304 bytes, 8192 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+
+
+Disk /dev/nvme0n1: 119.2 GiB, 128035676160 bytes, 250069680 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disklabel type: gpt
+Disk identifier: 8900EEBA-499A-40BA-8EC2-0DE34189D3FC
+
+Device         Start       End   Sectors   Size Type
+/dev/nvme0n1p1    34     32767     32734    16M Microsoft reserved
+/dev/nvme0n1p2 32768 250066943 250034176 119.2G Microsoft basic data
+
+
+Disk /dev/sda: 119.2 GiB, 128035676160 bytes, 250069680 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disklabel type: gpt
+Disk identifier: 5D10E8F0-AA14-4889-9957-FD7FB0C45CA4
+
+Device     Start       End   Sectors   Size Type
+/dev/sda1     34     32767     32734    16M Microsoft reserved
+/dev/sda2  32768 250066943 250034176 119.2G Microsoft basic data
+
+
+Disk /dev/sdb: 111.8 GiB, 120034123776 bytes, 234441648 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disklabel type: gpt
+Disk identifier: 7F036F55-C3AF-4395-9395-E1A774DF6396
+
+Device     Start       End   Sectors   Size Type
+/dev/sdb1     34     32767     32734    16M Microsoft reserved
+/dev/sdb2  32768 234438655 234405888 111.8G Microsoft basic data
+
+
+Disk /dev/sdc: 14.9 GiB, 15931539456 bytes, 31116288 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disklabel type: gpt
+Disk identifier: F3212CF3-7A89-4751-A49D-DDCD303A63F5
+
+Device        Start      End  Sectors  Size Type
+/dev/sdc1      2048  1050623  1048576  512M EFI System
+/dev/sdc2   1050624 14673919 13623296  6.5G Linux filesystem
+/dev/sdc3  14673920 31115263 16441344  7.9G Linux swap
+
+
+Disk /dev/mmcblk2: 59.5 GiB, 63864569856 bytes, 124735488 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disklabel type: dos
+Disk identifier: 0x14893ea1
+
+Device         Boot  Start     End Sectors  Size Id Type
+/dev/mmcblk2p1        8192  532479  524288  256M  c W95 FAT32 (LBA)
+/dev/mmcblk2p2      532480 7744511 7212032  3.4G 83 Linux
+--> ALL TEST PASS

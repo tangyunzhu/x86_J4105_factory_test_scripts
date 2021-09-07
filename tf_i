@@ -1,0 +1,18 @@
+ls /dev/mmcblk* > tf_log
+echo "#------------------Internal eMMC-----------------#\n" >> upload_log.log
+cat tf_log >> upload_log.log
+r1=$(grep -o mmcblk0 tf_log | wc -l)
+#echo $r1
+
+r2=$(grep -o mmcblk2 tf_log | wc -l)
+#echo $r2
+
+if [ "$r1" -ge 1 ]; then
+    echo " - > Internal eMMC OK" 
+    echo "--> Internal tf OK" >> upload_log.log
+else
+    echo " - > Error: Internal eMMC FAIL"
+    echo "--> Internal tf FAIL" >> upload_log.log
+    echo "FAIL" >> status
+    exit 2
+fi

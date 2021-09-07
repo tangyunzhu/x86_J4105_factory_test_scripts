@@ -1,0 +1,58 @@
+cd /home/seeed/QA
+echo "" > status
+id_n=$(python3 barcode.py)
+time=$(date "+%Y%m%d-%H%M%S")
+logName=$id_n"_"$time".log"
+logName_ok=$id_n"_"$time"_OK.log"
+logName_ng=$id_n"_"$time"_FAIL.log"
+echo $logName
+echo "" > upload_log.log
+./cpu_led_on
+sleep 1
+./enp2s0
+sleep 0.1
+./enp3s0
+#sleep 0.1
+#./mmc
+sleep 0.1
+./wlan
+sleep 0.1
+./tf_e
+#./tf_i
+./nvme
+./usb
+./sda
+./cpu_led_off
+echo "\r\n-----------------------------------------------------------\r\n#" >> upload_log.log
+df -h >> upload_log.log
+fdisk -l >> upload_log.log
+
+r1=$(grep -o FAIL status | wc -l)
+#echo $r1
+
+if [ "$r1" -ge 1 ]; then
+    echo "-----------------------------------------"
+    echo "-                                       -"
+    echo "-                                       -"
+    echo "-             F A I L                   -"
+    echo "-                                       -"
+    echo "-                                       -"
+    echo "-----------------------------------------" 
+    echo "--> ALL TEST FAIL" >> upload_log.log
+    logName=$logName_ng
+else
+    
+    echo "-----------------------------------------"
+    echo "-                                       -"
+    echo "-                                       -"
+    echo "-             P A S S                   -"
+    echo "-                                       -"
+    echo "-                                       -"
+    echo "-----------------------------------------"
+    echo "--> ALL TEST PASS" >> upload_log.log
+    logName=$logName_ok
+fi
+
+
+python3 alicloud_upload.py "$logName" "upload_log.log" 
+aplay song.wav

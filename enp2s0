@@ -1,0 +1,15 @@
+ifconfig enp2s0 > log 
+echo "#------------------en2s0-----------------#\n" >> upload_log.log
+cat log >> upload_log.log
+#grep "192.168" log > /dev/null && echo " ------- enp2s0 OK ---------"
+r=$(grep -o 192.168. log | wc -l)
+if [ "$r" -eq 2 ]; then
+    echo " - > enp2s0 OK"
+    echo "-->enp2s0 OK" >> upload_log.log
+else
+    echo " - > Error: enp2s0 FAIL"
+    echo "FAIL" >> status
+    echo "-->enp2s0 FAIL" >> upload_log.log
+    exit 2
+fi
+

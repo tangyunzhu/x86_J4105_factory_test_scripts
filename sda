@@ -1,0 +1,44 @@
+ls /dev/sd* > log
+echo "#------------------ SDA -----------------#\n" >> upload_log.log
+cat log >> upload_log.log
+
+r1=$(grep -o sda log | wc -l)
+#echo $r1
+
+r2=$(grep -o sdb log | wc -l)
+#echo $r2
+
+r3=$(grep -o sdc log | wc -l)
+#echo $r3
+
+
+if [ "$r1" -ge 1 ]; then
+    echo " - > sda OK" 
+    echo "--> /dev/sda OK" >> upload_log.log
+else
+    echo " - > Error: sda FAIL"
+    echo "--> /dev/sda FAIL" >> upload_log.log
+    echo "FAIL" >> status
+    exit 2
+fi
+
+if [ "$r2" -ge 1 ]; then
+    echo " - > sdb OK"
+    echo "--> /dev/sdb OK" >> upload_log.log
+else
+    echo " - > Error: sdb FAIL"
+    echo "--> /dev/sdb FAIL" >> upload_log.log
+    echo "FAIL" >> status
+    exit 3
+fi
+
+if [ "$r3" -ge 1 ]; then
+    echo " - > sdc OK"
+    echo "--> /dev/sdc OK" >> upload_log.log
+else
+    echo "--> /dev/sdc FAIL" >> upload_log.log
+    echo " - > Error: sdc FAIL"
+    echo "FAIL" >> status
+    exit 4
+fi
+

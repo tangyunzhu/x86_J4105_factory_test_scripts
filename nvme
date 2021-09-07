@@ -1,0 +1,15 @@
+ls /dev/nvme* > tf_log
+echo "#------------------nvme-----------------#\n" >> upload_log.log
+cat tf_log >> upload_log.log
+r1=$(grep -o nvme0 tf_log | wc -l)
+#echo $r1
+
+if [ "$r1" -ge 1 ]; then
+    echo " - > PCIE nvme OK" 
+    echo "--> PCIE nvme OK" >> upload_log.log
+else
+    echo " - > Error: PCIE nvme FAIL"
+    echo "--> PCIE nvme FAIL" >> upload_log.log
+    echo "FAIL" >> status
+    exit 2
+fi
