@@ -2,4 +2,5 @@
 t1: used for testing have eMMC dut   
 t2: used for testing none eMMC dut   
 S1: flash samd21 bootloader by JLink   
-S2: flash samd21 firmware by usb   
+S2: flash samd21 firmware by usb(method 1)   
+S3: flash samd21 firmware by usb(method 2)
